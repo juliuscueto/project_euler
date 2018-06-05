@@ -5,5 +5,5 @@ project euler src
 
 key memos
 
-*2: generator and np.fromiter()
-*7: faster and efficient prime generation [list of algorithms] (https://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n)
+* 2: generator and np.fromiter()
+* 7: faster and efficient prime generation [list of algorithms] (https://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n)
