@@ -4,7 +4,7 @@ def primes(n):
     if n==2: l = [2]
     elif n<2: l = []
     s=np.arange(3,n+1,2)
-    mroot = n ** 0.5
+    mroot = np.sqrt(n)
     half=len(s)
     i=0
     m=3
