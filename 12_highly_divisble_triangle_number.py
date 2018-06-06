@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 def primesfrom2to(n):
     sieve = np.ones(n//3 + (n%6==2), dtype=np.bool)
@@ -39,4 +40,6 @@ if __name__ == "__main__":
             break
         else:
             i += 1
+            sys.stdout.print("\r i:{0:10d}".format(i))
+            sys.flush()
     print(ret)
