@@ -21,7 +21,35 @@ def str_to_mat(str, row, col):
 
 def adj_prod_max(mat, adj, direction):
     prod_max = 0
+    i = 0
+    tmp = 0
     if direction == 1 or direction == 2:
         if direction == 2:
             mat = mat.T
-        # TODO: use np.prod -> for each iteration, check if theres max
+        while True:
+            if i + adj > mat.shape[0]:
+                break
+            else:
+                tmp = np.prod(mat[i:i+adj], axis=0).max()
+                if tmp > prod_max:
+                    prod_max = tmp
+                i += 1
+    if direction == 3 or direction == 4:
+        if direction == 4:
+            mat = np.rot90(mat)
+        for j in range(-mat.shape[0]+adj, mat.shape[0]-adj+1,1):
+            slice = np.diag(mat, j)
+            while True:
+                if i + adj > len(slice):
+                    i = 0
+                    break
+                else:
+                    tmp = np.prod(slice[i:i+adj])
+                    if tmp > prod_max:
+                        prod_max = tmp
+                    i += 1
+    return prod_max
+
+if __name__ == "__main__":
+    for i in range(1,5,1):
+        print(adj_prod_max(str_to_mat(grid, 20, 20), 4, i))
