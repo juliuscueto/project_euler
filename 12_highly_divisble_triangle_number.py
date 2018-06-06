@@ -11,7 +11,7 @@ def primesfrom2to(n):
     return np.r_[2,3,((3*np.nonzero(sieve)[0][1:]+1)|1)]
 
 def factor(n, primes=False):
-    if primes:
+    if primes.any():
         l_p = primes
     else:
         l_p = primesfrom2to(n)
@@ -33,14 +33,13 @@ def num_of_divisor(n, primes=False):
 
 if __name__ == "__main__":
     i = 1
-    primes = primesfrom2to(nth_triangle_number(1000))
+    primes = primesfrom2to(nth_triangle_number(100000))
     print("made list of prime")
     while True:
-        if num_of_divisor(nth_triangle_number(i), primes) > 500:
+        num = num_of_divisor(nth_triangle_number(i), primes)
+        if num > 500:
             ret = nth_triangle_number(i)
             break
         else:
             i += 1
-            sys.stdout.write("\r i:{0:10d}".format(i))
-            sys.stdout.flush()
     print(ret)
