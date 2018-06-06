@@ -32,7 +32,7 @@ def num_of_divisor(n, primes=False):
 
 if __name__ == "__main__":
     i = 1
-    primes = primesfrom2to(nth_triangle_number(1000000))
+    primes = primesfrom2to(nth_triangle_number(1000))
     while True:
         if num_of_divisor(nth_triangle_number(i), primes) > 500:
             ret = nth_triangle_number(i)
