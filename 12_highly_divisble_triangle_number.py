@@ -34,12 +34,13 @@ def num_of_divisor(n, primes=False):
 if __name__ == "__main__":
     i = 1
     primes = primesfrom2to(nth_triangle_number(1000))
+    print("made list of prime")
     while True:
         if num_of_divisor(nth_triangle_number(i), primes) > 500:
             ret = nth_triangle_number(i)
             break
         else:
             i += 1
-            sys.stdout.print("\r i:{0:10d}".format(i))
-            sys.flush()
+            sys.stdout.write("\r i:{0:10d}".format(i))
+            sys.stdout.flush()
     print(ret)
