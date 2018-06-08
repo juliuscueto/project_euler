@@ -10,6 +10,10 @@ def fibs(max):
         yield a
         a, b = b, a+b
 
+def factorialto(n):
+    l = np.arange(1,n+1,1)
+    return np.cumprod(l, dtype=np.float64)
+
 def primesfrom2to(n):
     sieve = np.ones(n//3 + (n%6==2), dtype=np.bool)
     for i in range(1, int(np.sqrt(n))//3+1):
