@@ -92,3 +92,8 @@ def sumoffactor(n, l_p):
 @numba.jit
 def isabundant(n, l_p):
     return sumoffactor(n, l_p) > n
+
+@numba.jit
+def abundantto(n, l_p):
+    l = [x for x in np.arange(12, n+1, 1) if isabundant(x, l_p)]
+    return np.array(l)
